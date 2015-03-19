@@ -100,9 +100,15 @@
 #include "Arduino_Mega.h"
 
 #elif defined (__AVR_ATmega32U4__)
-
-/* Teensy 2.0 */
+#ifdef CORE_TEENSY
+  //it's Teensy 2.0
 #include "Teensy_xxU4.h"
+
+#else
+
+#include "ATmega_xxU4.h"
+  //   // it's probably Leonardo
+#endif
 
 #elif defined (__AVR_AT90USB646__) \
    || defined (__AVR_AT90USB1286__)
